@@ -8,14 +8,11 @@
 // Real location is a bit off for thumbcluster.
 // thumbcluster L       thumbcluster R
 // Mapped version
-// 1 2 3               3 2 1
-// 4 5 6               6 5 4
-// Expected real
+// 2 3 4               4 3 2
+// 1 5 6               6 5 1
+// "Real" Mapping
 // 1 2 3 4              4 3 2 1
 //     5 6              6 5
-// Actual real
-// 5 2 1 3             x 2 1 5
-//     4 6             x x
 
 / {
     chosen { zmk,matrix-transform = &dactyl_manuform_number_row;
@@ -30,8 +27,8 @@
  &kp ESC    &kp A     &kp S     &kp D     &kp F   &kp G                                          &kp H       &kp J      &kp K     &kp L    &kp SEMI &kp SQT
  &kp LSHFT  &kp Z     &kp X     &kp C     &kp V   &kp B                                          &kp N       &kp M      &kp COMMA &kp DOT  &kp FSLH &kp RSHFT
  &kp LCTRL  &kp LALT  &kp LGUI  &trans                                                                                  &kp LBKT  &kp RBKT &trans   &trans
-                                                  &kp ENTER &kp BSPC  &kp LGUI      &trans &kp DEL &kp SPACE
-                                                  &kp LCTRL &mo 1  &kp ESC          &trans &mo 2 &trans
+                                                  &kp BSPC  &kp ENTER &kp LGUI      &trans &kp DEL &kp SPACE
+                                                  &mo 1     &kp LCTRL &kp LALT       &trans &kp LGUI &mo 2
             >;
         };
 
