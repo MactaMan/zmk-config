@@ -5,6 +5,11 @@
 #include <dt-bindings/zmk/rgb.h>
 #include <dt-bindings/zmk/ext_power.h>
 
+#define RGB_DEFAULT RGB_COLOR_HSB(150,200,255)
+#define RGB_DEFAULT_THUMB RGB_COLOR_HSB(255,255,255)
+
+#define RGB_NAV RGB_COLOR_HSB(255,240,150)
+
 // Real location is a bit off for thumbcluster.
 // thumbcluster L       thumbcluster R
 // Mapped version
@@ -53,6 +58,37 @@
  &trans  &trans     &trans      &trans                                                                             &none      &none      &none      &none
                                             &trans  &trans &trans        &trans &trans &trans
                                             &trans  &trans &trans        &trans &trans &trans
+            >;
+        };
+    };
+
+    underglow-layer {
+        compatible = "zmk,underglow-layer";
+
+        default_layer {
+            // This layer is active when keymap layer 0 is active
+            layer-id = <0>; 
+            bindings = <
+                &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT            &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT
+                &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT            &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT
+                &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT            &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT
+                &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT            &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT
+                &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT                                                                            &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT
+                                        &ug RGB_DEFAULT_THUMB   &ug RGB_DEFAULT_THUMB   &ug RGB_DEFAULT_THUMB               &ug RGB_DEFAULT_THUMB   &ug RGB_DEFAULT_THUMB   &ug RGB_DEFAULT_THUMB
+                                        &ug RGB_DEFAULT_THUMB   &ug RGB_DEFAULT_THUMB   &ug RGB_DEFAULT_THUMB               &ug RGB_DEFAULT_THUMB   &ug RGB_DEFAULT_THUMB   &ug RGB_DEFAULT_THUMB
+            >;
+        };
+
+        NAV_layer {
+            layer-id = <1>; // NAV_layer
+            bindings = <
+                &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT            &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT
+                &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_NAV     &ug RGB_NAV     &ug RGB_NAV     &ug RGB_DEFAULT            &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT
+                &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_NAV     &ug RGB_NAV     &ug RGB_NAV     &ug RGB_DEFAULT            &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT
+                &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT            &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT
+                &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT                                                                            &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT &ug RGB_DEFAULT
+                                        &ug RGB_DEFAULT_THUMB   &ug RGB_DEFAULT_THUMB   &ug RGB_DEFAULT_THUMB               &ug RGB_DEFAULT_THUMB   &ug RGB_DEFAULT_THUMB   &ug RGB_DEFAULT_THUMB
+                                        &ug RGB_DEFAULT_THUMB   &ug RGB_DEFAULT_THUMB   &ug RGB_DEFAULT_THUMB               &ug RGB_DEFAULT_THUMB   &ug RGB_DEFAULT_THUMB   &ug RGB_DEFAULT_THUMB
             >;
         };
     };
